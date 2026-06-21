@@ -15,6 +15,7 @@
   border-radius: 8px;
   outline: none;
   transition: border-color 0.2s;
+  min-width: 0;
 }
 
 .input:focus {
@@ -38,6 +39,8 @@
   border-radius: 8px;
   cursor: pointer;
   transition: background-color 0.2s;
+  white-space: nowrap;
+  min-height: 44px;
 }
 
 .button:hover {
@@ -52,4 +55,16 @@
   margin-top: 0.4rem;
   font-size: 0.875rem;
   color: #ef4444;
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .input {
+    padding: 0.75rem 0.85rem;
+    font-size: 1rem;
+  }
+
+  .button {
+    padding: 0.75rem 1rem;
+  }
 }

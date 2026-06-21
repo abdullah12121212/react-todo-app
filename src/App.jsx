@@ -24,7 +24,7 @@ function App() {
 
   return (
     <main className="app" role="main" id="main-content">
-      <h1 id="app-title">Todo App</h1>
+      <h1 id="app-title">My Todos</h1>
       <TaskInput onAdd={handleAdd} />
       <section aria-label="Task list" aria-live="polite">
         <TaskList tasks={tasks} onDelete={handleDelete} onToggle={handleToggle} />

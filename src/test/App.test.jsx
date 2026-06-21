@@ -6,7 +6,7 @@ import App from '../App'
 describe('App — integration', () => {
   it('renders heading', () => {
     render(<App />)
-    expect(screen.getByRole('heading', { name: /todo app/i })).toBeInTheDocument()
+    expect(screen.getByRole('heading', { name: /my todos/i })).toBeInTheDocument()
   })
 
   it('shows empty state on load', () => {
@@ -48,17 +48,17 @@ describe('App — integration', () => {
     render(<App />)
     await userEvent.type(screen.getByRole('textbox'), 'Buy milk')
     fireEvent.click(screen.getByRole('button', { name: /add task/i }))
-    fireEvent.click(screen.getByRole('checkbox'))
-    expect(screen.getByRole('checkbox')).toBeChecked()
+    fireEvent.click(screen.getByRole('button', { name: /as complete/i }))
+    expect(screen.getByRole('button', { name: /undo complete/i })).toBeInTheDocument()
   })
 
   it('unmarks a completed task', async () => {
     render(<App />)
     await userEvent.type(screen.getByRole('textbox'), 'Buy milk')
     fireEvent.click(screen.getByRole('button', { name: /add task/i }))
-    fireEvent.click(screen.getByRole('checkbox'))
-    fireEvent.click(screen.getByRole('checkbox'))
-    expect(screen.getByRole('checkbox')).not.toBeChecked()
+    fireEvent.click(screen.getByRole('button', { name: /as complete/i }))
+    fireEvent.click(screen.getByRole('button', { name: /undo complete/i }))
+    expect(screen.getByRole('button', { name: /as complete/i })).toBeInTheDocument()
   })
 
   it('adds multiple tasks', async () => {

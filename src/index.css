@@ -2,12 +2,34 @@
   box-sizing: border-box;
 }
 
+:root {
+  --bg-page:             #1F1F1F;
+  --bg-card:             #2F2F2F;
+  --divider:             #3A3A3A;
+
+  --accent-orange:       #F39C2E;
+  --accent-orange-hover: #FFAD40;
+
+  --success-green:       #3FBF6F;
+  --danger-red:          #E94B4B;
+
+  --button-light-bg:     #F8F8F0;
+
+  --text-primary:        #FFFFFF;
+  --text-secondary:      #D0D0D0;
+  --text-faded:          #6B6B6B;
+
+  --input-bg:            #FFFFFF;
+  --input-border:        var(--accent-orange);
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
     Ubuntu, Cantarell, sans-serif;
-  background-color: #f5f5f5;
-  color: #333;
+  background-color: var(--bg-page);
+  color: var(--text-primary);
+  min-height: 100vh;
 }
 
 /* Skip to main content link for keyboard users */
@@ -15,7 +37,7 @@ body {
   position: absolute;
   top: -100%;
   left: 0;
-  background: #6366f1;
+  background: var(--accent-orange);
   color: #fff;
   padding: 0.5rem 1rem;
   z-index: 100;
@@ -30,6 +52,6 @@ body {
 
 /* Visible focus outline for keyboard navigation */
 :focus-visible {
-  outline: 3px solid #6366f1;
+  outline: 3px solid var(--accent-orange);
   outline-offset: 2px;
 }

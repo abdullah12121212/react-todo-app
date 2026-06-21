@@ -36,8 +36,10 @@ function TaskInput({ onAdd }) {
 
   return (
     <div className={styles.container}>
+      <label className={styles.label} htmlFor="task-input">Name</label>
       <div className={styles.wrapper}>
         <input
+          id="task-input"
           className={`${styles.input} ${error ? styles.inputError : ''}`}
           type="text"
           value={value}

@@ -2,80 +2,92 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0.75rem 1rem;
-  background: #fff;
-  border: 1px solid #e5e7eb;
-  border-radius: 8px;
-  margin-bottom: 0.5rem;
-  list-style: none;
-  transition: background-color 0.2s, opacity 0.2s;
-  gap: 0.5rem;
+  padding: 1rem;
+  border-bottom: 1px solid var(--divider);
+  gap: 0.75rem;
+  transition: opacity 0.2s;
+}
+
+.item:last-child {
+  border-bottom: none;
 }
 
 .completed {
-  background-color: #f9fafb;
-  opacity: 0.7;
-}
-
-.left {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  flex: 1;
-  min-width: 0;
-}
-
-.checkbox {
-  width: 1.1rem;
-  height: 1.1rem;
-  min-width: 1.1rem;
-  cursor: pointer;
-  accent-color: #6366f1;
+  opacity: 0.55;
 }
 
 .text {
   font-size: 1rem;
-  color: #333;
-  transition: text-decoration 0.2s, color 0.2s;
+  font-weight: 600;
+  color: var(--accent-orange);
+  flex: 1;
+  min-width: 0;
   word-break: break-word;
   overflow-wrap: break-word;
-  min-width: 0;
-  flex: 1;
 }
 
 .completed .text {
   text-decoration: line-through;
-  color: #9ca3af;
+  color: var(--text-faded);
 }
 
-.deleteBtn {
-  background: none;
-  border: none;
-  color: #ef4444;
-  font-size: 1rem;
-  cursor: pointer;
-  padding: 0.25rem 0.5rem;
-  border-radius: 4px;
-  transition: background-color 0.2s;
-  min-width: 44px;
-  min-height: 44px;
+.actions {
   display: flex;
-  align-items: center;
-  justify-content: center;
+  gap: 0.5rem;
   flex-shrink: 0;
 }
 
+.completeBtn,
+.undoBtn,
+.deleteBtn {
+  padding: 0.35rem 0.9rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  border-radius: 24px;
+  border: 2px solid;
+  cursor: pointer;
+  background: var(--button-light-bg);
+  transition: opacity 0.2s;
+  min-height: 36px;
+  white-space: nowrap;
+}
+
+.completeBtn {
+  border-color: var(--success-green);
+  color: var(--success-green);
+}
+
+.undoBtn {
+  border-color: var(--accent-orange);
+  color: var(--accent-orange);
+}
+
+.deleteBtn {
+  border-color: var(--danger-red);
+  color: var(--danger-red);
+}
+
+.completeBtn:hover,
+.undoBtn:hover,
 .deleteBtn:hover {
-  background-color: #fee2e2;
+  opacity: 0.8;
 }
 
 /* Mobile */
 @media (max-width: 480px) {
   .item {
-    padding: 0.75rem;
+    flex-direction: column;
+    align-items: flex-start;
   }
 
-  .text {
-    font-size: 0.95rem;
+  .actions {
+    width: 100%;
+  }
+
+  .completeBtn,
+  .undoBtn,
+  .deleteBtn {
+    flex: 1;
+    text-align: center;
   }
 }

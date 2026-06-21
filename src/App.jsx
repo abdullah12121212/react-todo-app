@@ -14,11 +14,19 @@ function App() {
     setTasks((prev) => prev.filter((task) => task.id !== id))
   }
 
+  const handleToggle = (id) => {
+    setTasks((prev) =>
+      prev.map((task) =>
+        task.id === id ? { ...task, completed: !task.completed } : task
+      )
+    )
+  }
+
   return (
     <main className="app">
       <h1>Todo App</h1>
       <TaskInput onAdd={handleAdd} />
-      <TaskList tasks={tasks} onDelete={handleDelete} />
+      <TaskList tasks={tasks} onDelete={handleDelete} onToggle={handleToggle} />
     </main>
   )
 }

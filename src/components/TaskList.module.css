@@ -1,11 +1,14 @@
 .list {
+  background: var(--bg-card);
+  border-radius: 12px;
   padding: 0;
   margin: 0;
+  overflow: hidden;
 }
 
 .empty {
   text-align: center;
-  color: #9ca3af;
+  color: var(--text-secondary);
   font-size: 0.95rem;
   margin-top: 2rem;
 }

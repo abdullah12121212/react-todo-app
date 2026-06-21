@@ -11,27 +11,39 @@ describe('TaskItem', () => {
     expect(screen.getByText('Buy milk')).toBeInTheDocument()
   })
 
-  it('renders unchecked checkbox for active task', () => {
+  it('renders Complete button for active task', () => {
     render(<TaskItem task={mockTask} onDelete={vi.fn()} onToggle={vi.fn()} />)
-    expect(screen.getByRole('checkbox')).not.toBeChecked()
+    expect(screen.getByRole('button', { name: /mark "buy milk" as complete/i })).toBeInTheDocument()
   })
 
-  it('renders checked checkbox for completed task', () => {
+  it('renders Undo button for completed task', () => {
     render(<TaskItem task={completedTask} onDelete={vi.fn()} onToggle={vi.fn()} />)
-    expect(screen.getByRole('checkbox')).toBeChecked()
+    expect(screen.getByRole('button', { name: /undo complete/i })).toBeInTheDocument()
   })
 
-  it('calls onToggle with task id when checkbox clicked', () => {
+  it('does not render Complete button for completed task', () => {
+    render(<TaskItem task={completedTask} onDelete={vi.fn()} onToggle={vi.fn()} />)
+    expect(screen.queryByRole('button', { name: /as complete/i })).not.toBeInTheDocument()
+  })
+
+  it('calls onToggle with task id when Complete clicked', () => {
     const onToggle = vi.fn()
     render(<TaskItem task={mockTask} onDelete={vi.fn()} onToggle={onToggle} />)
-    fireEvent.click(screen.getByRole('checkbox'))
+    fireEvent.click(screen.getByRole('button', { name: /as complete/i }))
     expect(onToggle).toHaveBeenCalledWith(1)
   })
 
-  it('calls onDelete with task id when delete button clicked', () => {
+  it('calls onToggle with task id when Undo clicked', () => {
+    const onToggle = vi.fn()
+    render(<TaskItem task={completedTask} onDelete={vi.fn()} onToggle={onToggle} />)
+    fireEvent.click(screen.getByRole('button', { name: /undo complete/i }))
+    expect(onToggle).toHaveBeenCalledWith(2)
+  })
+
+  it('calls onDelete with task id when Delete clicked', () => {
     const onDelete = vi.fn()
     render(<TaskItem task={mockTask} onDelete={onDelete} onToggle={vi.fn()} />)
-    fireEvent.click(screen.getByRole('button', { name: /delete task/i }))
+    fireEvent.click(screen.getByRole('button', { name: /delete task: buy milk/i }))
     expect(onDelete).toHaveBeenCalledWith(1)
   })
 

@@ -1,7 +1,10 @@
+.container {
+  margin-bottom: 1.5rem;
+}
+
 .wrapper {
   display: flex;
   gap: 0.5rem;
-  margin-bottom: 1.5rem;
 }
 
 .input {
@@ -16,6 +19,14 @@
 
 .input:focus {
   border-color: #6366f1;
+}
+
+.inputError {
+  border-color: #ef4444;
+}
+
+.inputError:focus {
+  border-color: #ef4444;
 }
 
 .button {
@@ -35,4 +46,10 @@
 
 .button:active {
   background-color: #4338ca;
+}
+
+.error {
+  margin-top: 0.4rem;
+  font-size: 0.875rem;
+  color: #ef4444;
 }

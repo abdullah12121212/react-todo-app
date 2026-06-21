@@ -1,0 +1,11 @@
+.list {
+  padding: 0;
+  margin: 0;
+}
+
+.empty {
+  text-align: center;
+  color: #9ca3af;
+  font-size: 0.95rem;
+  margin-top: 2rem;
+}

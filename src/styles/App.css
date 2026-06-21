@@ -19,3 +19,33 @@ body {
   margin: 0 auto;
   padding: 2rem 1rem;
 }
+
+.app h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: #111;
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+  .app {
+    padding: 1.5rem 1rem;
+  }
+
+  .app h1 {
+    font-size: 1.75rem;
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .app {
+    padding: 1rem 0.75rem;
+  }
+
+  .app h1 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+}

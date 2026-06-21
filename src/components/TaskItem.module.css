@@ -9,6 +9,7 @@
   margin-bottom: 0.5rem;
   list-style: none;
   transition: background-color 0.2s, opacity 0.2s;
+  gap: 0.5rem;
 }
 
 .completed {
@@ -20,11 +21,14 @@
   display: flex;
   align-items: center;
   gap: 0.75rem;
+  flex: 1;
+  min-width: 0;
 }
 
 .checkbox {
   width: 1.1rem;
   height: 1.1rem;
+  min-width: 1.1rem;
   cursor: pointer;
   accent-color: #6366f1;
 }
@@ -33,6 +37,7 @@
   font-size: 1rem;
   color: #333;
   transition: text-decoration 0.2s, color 0.2s;
+  word-break: break-word;
 }
 
 .completed .text {
@@ -49,8 +54,25 @@
   padding: 0.25rem 0.5rem;
   border-radius: 4px;
   transition: background-color 0.2s;
+  min-width: 44px;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
 }
 
 .deleteBtn:hover {
   background-color: #fee2e2;
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .item {
+    padding: 0.75rem;
+  }
+
+  .text {
+    font-size: 0.95rem;
+  }
 }

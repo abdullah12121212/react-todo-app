@@ -38,6 +38,9 @@
   color: #333;
   transition: text-decoration 0.2s, color 0.2s;
   word-break: break-word;
+  overflow-wrap: break-word;
+  min-width: 0;
+  flex: 1;
 }
 
 .completed .text {
